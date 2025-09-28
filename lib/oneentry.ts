@@ -20,7 +20,7 @@ async function setupApiClient(): Promise<ReturnType<typeof defineOneEntry>> {
     {
         try{
             const refreshToken = await retriveRefreshToken();
-            apiClient = defineOneEntry(apiUrl,{token:process.env.ONEENTRY_TOKEN,langCode: 'en-US',
+            apiClient = defineOneEntry(apiUrl,{token:process.env.ONEENTRY_TOKEN,langCode: 'en_US',
                 auth:{refreshToken:refreshToken|| undefined,customAuth:false,
                     saveFunction:async (newToken: string)=>{await storeRefreshToken(newToken);},},});
         }
